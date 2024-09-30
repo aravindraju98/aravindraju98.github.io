@@ -636,78 +636,87 @@ span.single-timeline-horizontal.spacial-horizontal-line {width: 88px;}
 /*-------------------------------------
         9. Portfolio
 --------------------------------------*/
+/* Portfolio Section */
 .portfolio {
-    padding:  50px 0 100px;
-    border:  1px solid #e5ebf2;
+    padding: 50px 0 100px;
+    border: 1px solid #e5ebf2;
 }
 
-.portfolio-content {padding-top: 100px;}
-
-/* ---- .item ---- */
-.isotope:after {
-    content: '';
-    display: block;
-    clear: both;
+.portfolio-content {
+    padding-top: 50px;
 }
-.isotope .item {
-    position:relative;
-    overflow:hidden;
+
+/* Isotope item */
+.item {
+    position: relative;
+    overflow: hidden;
     margin-bottom: 30px;
+    height: 350px; /* Adjust height for vertical rectangle effect */
 }
-/*.item img*/
-.isotope .item img{
-    width:100%;
-    height:100%;
-    -webkit-transition: .5s;
-    -moz-transition: .5s;
-    -ms-transition: .5s;
-    -o-transition: .5s;
-    transition: .5s;
-}
-.isotope .item:hover  img{
-    -webkit-transform:scale(1.5);
-    -moz-transform:scale(1.5);
-    -ms-transform:scale(1.5);
-    -o-transform:scale(1.5);
-    transform:scale(1.5);
-}/*.item img*/
 
-/*.isotope-overlay*/
-.isotope-overlay{
-    position:absolute;
-    height:100%;
-    width:100%;
-    background:rgba(31,44,108,.5);
-    display:flex;
-    align-items:center;
-    text-transform: uppercase;
-    justify-content:center;
-    flex-direction:row;
-    -webkit-transform:scale(0);
-    -moz-transform:scale(0);
-    -ms-transform:scale(0);
-    -o-transform:scale(0);
-    transform:scale(0);
-    -webkit-transition: .5s;
-    -moz-transition: .5s;
-    -ms-transition: .5s;
-    -o-transition: .5s;
-    transition: .5s;
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
 }
-.isotope-overlay a {
-    display: inline-block;
+
+.item:hover img {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Isotope Overlay */
+.isotope-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(31, 44, 108, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     color: #fff;
-    font-size: 14px;
     text-align: center;
+    transform: scale(0);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
 }
-.isotope .item:hover .isotope-overlay{
-    -webkit-transform:scale(1);
-    -moz-transform:scale(1);
-    -ms-transform:scale(1);
-    -o-transform:scale(1);
-    transform:scale(1);
-    top:0;
-}/*.isotope-overlay*/
+
+.item:hover .isotope-overlay {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Overlay content */
+.overlay-content h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.overlay-content p {
+    font-size: 14px;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+/* Hover effect: title appears first */
+.isotope-overlay {
+    padding: 20px;
+}
+
+.overlay-content {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.item:hover .overlay-content {
+    opacity: 1;
+}
+
 
 /*-------------------------------------
         10. Clients
